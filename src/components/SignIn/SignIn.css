@@ -1,0 +1,7 @@
+.hover-bg-black:hover {
+    background-color: #000 !important; 
+} 
+
+.blurin {
+    backdrop-filter: blur(5px);
+}
