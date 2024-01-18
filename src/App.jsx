@@ -9,7 +9,6 @@ import Register from './components/Register/Register.jsx';
 import ParticlesBg from 'particles-bg';
 import { Component } from 'react';
 
-
 const initialState = {
   input: '',
   imageUrl: '',
@@ -20,7 +19,7 @@ const initialState = {
     id: '',
     name: '',
     email: '',
-    entries: 0,
+    rank: 0,
     joined: ''
   }
 }
@@ -37,7 +36,7 @@ class App extends Component {
         id: data.id,
         name: data.name,
         email: data.email,
-        entries: data.entries,
+        rank: data.rank,
         joined: data.joined  
       }
     });
@@ -85,7 +84,7 @@ class App extends Component {
         })
       })
       .then(response => response.json())
-      .then(count => this.setState(Object.assign(this.state.user, {entries: count})))
+      .then(count => this.setState(Object.assign(this.state.user, {rank: count})))
       .catch(error => console.log(error));
   }
 
@@ -107,7 +106,7 @@ class App extends Component {
         { this.state.route === 'home' 
             ? <div> 
               <Logo /> 
-              <Rank name={this.state.user.name} entries={this.state.user.entries} />
+              <Rank name={this.state.user.name} rank={this.state.user.rank} />
               <ImageLinkForm onInputChange={this.OnInputChange} onPictureSubmit={this.OnPictureSubmit}/>
               <FaceRecognition box={box} imageUrl={imageUrl}/>
             </div>  
